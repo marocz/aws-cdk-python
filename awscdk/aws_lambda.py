@@ -2,10 +2,9 @@
 from constructs import Construct
 import os
 from aws_cdk import aws_lambda as lambda_
-from aws_cdk import CfnOutput, Stack, aws_iam as iam
+from aws_cdk import Stack, aws_iam as iam
 from aws_cdk import aws_cloudformation as cfn
 from aws_cdk import CustomResource
-import constructs
 from aws_cdk import aws_eks as eks
 
 class GetSSMLambda(Stack):
@@ -52,7 +51,7 @@ class GetSSMLambda(Stack):
         # Add the Helm chart to the cluster
         # eks.HelmChart(
         #     self, "NginxIngress",
-        #     cluster=self.cluster,
+        #     cluster_name="Cluster"
         #     chart="ingress-nginx",
         #     repository="https://kubernetes.github.io/ingress-nginx",
         #     namespace="ingress-nginx",
