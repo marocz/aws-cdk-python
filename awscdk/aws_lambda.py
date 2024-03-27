@@ -47,13 +47,16 @@ class GetSSMLambda(Stack):
                 "labels": {my_custom_resource.get_att_string("label"),my_custom_resource.get_att_string("namespace")}
             }
         }
-
+        
+        cluster = eks.Cluster(self, 'Cluster',
+                              cluster_name="Cluster"
+                              )
         # Add the Helm chart to the cluster
-        # eks.HelmChart(
-        #     self, "NginxIngress",
-        #     cluster_name="Cluster"
-        #     chart="ingress-nginx",
-        #     repository="https://kubernetes.github.io/ingress-nginx",
-        #     namespace="ingress-nginx",
-        #     values=helm_values
-        # )
+        eks.HelmChart(
+            self, "NginxIngress",
+            cluster=cluster,
+            chart="ingress-nginx",
+            repository="https://kubernetes.github.io/ingress-nginx",
+            namespace="ingress-nginx",
+            values=helm_values
+        )
