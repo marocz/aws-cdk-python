@@ -1,0 +1,1 @@
+from .secrets_function import lambda_handler, send_response

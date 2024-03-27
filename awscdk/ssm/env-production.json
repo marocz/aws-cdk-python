@@ -1,0 +1,6 @@
+{
+  "replicacount": "2",
+  "label": "SRE",
+  "terminationGracePeriodSeconds": "190",
+  "namespace": "live"
+}

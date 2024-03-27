@@ -1,0 +1,6 @@
+{
+  "replicacount": "1",
+  "label": "DevOps",
+  "terminationGracePeriodSeconds": "120",
+  "namespace": "develop"
+}

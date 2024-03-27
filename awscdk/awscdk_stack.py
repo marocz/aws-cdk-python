@@ -3,17 +3,19 @@ from aws_cdk import (
     Stack,
     # aws_sqs as sqs,
 )
+
+from .ssm.ssm_parameters import SSMParameters
+
 from constructs import Construct
 
 class AwscdkStack(Stack):
 
-    def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
+    def __init__(self, scope: Construct, construct_id: str, environment: str, **kwargs,) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
-        # The code that defines your stack goes here
+        SSMParameters(self, environment)
+        # GetSSMParameters(self, environment)
 
-        # example resource
-        # queue = sqs.Queue(
-        #     self, "AwscdkQueue",
-        #     visibility_timeout=Duration.seconds(300),
-        # )
+        
+
+
